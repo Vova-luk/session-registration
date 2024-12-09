@@ -1,0 +1,25 @@
+{% extends 'entrance/base.html'  %}
+
+{% block title %} Вход {% endblock %}
+
+{% block content %}
+    <h2>Войдите</h2>
+    {% if error %}
+            <p>Неверный логин или пароль</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+
+        {% for x in form %}
+            <div>
+                {{ x.errors }}
+                {{ x.label_tag }}
+                {{ x }}
+            </div>
+        {% endfor %}
+        <button>Войти</button>
+    </form>
+    <p><a href="{% url 'reg' %}">Или зарегистрируйтесь</a></p>
+
+
+{% endblock %}

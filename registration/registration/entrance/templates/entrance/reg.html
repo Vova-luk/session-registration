@@ -1,0 +1,23 @@
+{% extends 'entrance/base.html'%}
+
+{% block title %} Регистрация {% endblock %}
+
+{% block content %}
+    {% if error_email %}
+        <p>Проблемы с почтой. Что-то не так</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {% for x in form %}
+            <div>
+                {{ x.errors }}
+                {{ x.label_tag }}
+                {{ x }}
+            </div>
+        {% endfor %}
+        <button>Зарегистрироваться</button>
+    </form>
+
+{% endblock %}
+
+

@@ -1,0 +1,15 @@
+{% extends 'entrance/base.html'%}
+
+{% block title %} Подтверди свою почту {% endblock %}
+
+{% block content %}
+    <h2>На вашу почту {{ email }} отправлен код для подтверждения, введите его</h2>
+    {% if wrong_code %}
+            <p>Неправильный код</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.code }}
+        <button>Отправить</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'entrance/base.html'%}
+
+{% block title %} Главная страница {% endblock %}
+
+{% block content %}
+    <h2>Аккаунт: {{ last_name }} {{ first_name }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <button>Выйти из аккаунта</button>
+    </form>
+
+{% endblock %}
